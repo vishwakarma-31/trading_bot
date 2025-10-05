@@ -475,87 +475,21 @@ Time: 2025-10-05 14:30:15 UTC
 
 ### Recommended Threshold Values
 
-#### For Beginners:
-- **Percentage Threshold**: 0.5% to 1.0%
-- **Absolute Threshold**: $1.00 to $5.00
+- **Beginners**: Start with 0.5% to 1.0% percentage threshold and $1.00 to $5.00 absolute threshold
+- **Experienced Users**: Use 0.3% to 0.8% percentage threshold and $0.50 to $3.00 absolute threshold
 
-#### For Experienced Traders:
-- **Percentage Threshold**: 0.3% to 0.8%
-- **Absolute Threshold**: $0.50 to $3.00
+### Managing Monitors
 
-#### For High-Frequency Trading:
-- **Percentage Threshold**: 0.1% to 0.5%
-- **Absolute Threshold**: $0.10 to $1.00
+- Keep monitor counts reasonable (under the limits)
+- Stop unused monitors to conserve resources
+- Focus on high-liquidity trading pairs
 
-### Recommended Update Frequencies
+### Using the Bot Effectively
 
-#### Arbitrage Monitoring:
-- **Real-time**: Immediate alerts for opportunities
-- **Update Interval**: Continuous monitoring
-
-#### Market View:
-- **Frequent Updates**: 30 seconds (default)
-- **Moderate Updates**: 60 seconds
-- **Infrequent Updates**: 120 seconds
-
-### How to Avoid Rate Limits
-
-1. **Limit Concurrent Monitors**:
-   - Don't exceed recommended monitor limits
-   - Stop unused monitoring services
-
-2. **Optimize Update Frequencies**:
-   - Use longer intervals for less volatile assets
-   - Reduce update frequency during quiet market periods
-
-3. **Efficient Exchange Selection**:
-   - Monitor fewer exchanges for better performance
-   - Focus on exchanges with the best liquidity for your assets
-
-4. **Batch Operations**:
-   - Configure multiple settings at once
-   - Use interactive menus for efficient configuration
-
-## Advanced Features
-
-### Custom Alert Configuration
-
-1. **Alert Frequency**:
-   - Immediate: Alerts sent as soon as detected
-   - Hourly: Summary of opportunities each hour
-   - Daily: Daily summary of all opportunities
-
-2. **Message Format**:
-   - Simple: Basic opportunity information
-   - Detailed: Comprehensive data including timestamps and thresholds
-
-3. **Timezone Settings**:
-   - Set preferred timezone for timestamp display
-   - UTC is default for consistency
-
-### Historical Data Access
-
-1. **Opportunity History**:
-   ```
-   /arbitrage
-   ```
-   Shows recent arbitrage opportunities
-
-2. **Market View History**:
-   - Use `/get_cbbo` for current data
-   - Historical trends available through market view updates
-
-### Performance Monitoring
-
-1. **Service Metrics**:
-   - Opportunity detection rates
-   - Data processing times
-   - API usage statistics
-
-2. **Resource Usage**:
-   - Memory consumption
-   - CPU utilization
-   - Network bandwidth usage
+- Check status regularly with `/status`
+- Use `/list_symbols` to discover available trading pairs
+- Configure alerts with `/alerts` to receive notifications
+- Adjust settings based on market conditions
 
 ## User Experience Tips
 
