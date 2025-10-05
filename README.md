@@ -44,14 +44,16 @@ For detailed instructions, see [Setup Guide](docs/setup_deployment_guide.md)
 
 ## Project Structure
 
+```
 src/
-├── application/     # Application controller and main loop
-├── config/          # Configuration management
+├── application/      # Application controller and main loop
+├── config/           # Configuration management
 ├── data_acquisition/ # Market data fetching from GoMarket
-├── data_processing/ # Arbitrage detection and market view calculations
-├── telegram_bot/    # Telegram bot interface
-├── logging_module/  # Logging utilities
-└── utils/           # Utility functions
+├── data_processing/  # Arbitrage detection and market view calculations
+├── telegram_bot/     # Telegram bot interface
+├── logging_module/   # Logging utilities
+└── utils/            # Utility functions
+```
 
 ## Telegram Bot Commands
 
@@ -59,7 +61,7 @@ src/
 - `/start` - Welcome message and bot introduction
 - `/help` - Show available commands
 - `/status` - Check bot status
-- `/list_symbols <exchange>` - List available symbols for an exchange
+- `/list_symbols <exchange> <market_type>` - List available symbols for an exchange
 
 ### Arbitrage Signal Service
 - `/monitor_arb <asset1_on_exchangeA> <asset2_on_exchangeB> <threshold>` - Start monitoring arbitrage
@@ -126,6 +128,6 @@ For detailed configuration instructions, see [Setup Guide](docs/setup_deployment
 
 ## GoMarket API Integration
 
-The system fetches Level 1 and Level 2 market data, symbol information, and supports real-time WebSocket connections. It uses symbol discovery endpoints to identify available trading pairs.
+The system connects to GoMarket to obtain real-time L1 market data (BBO, last trade price) and L2 order book data. Symbol discovery is performed via the endpoint: GET https://gomarket-api.goquant.io/api/symbols/{exchange}/spot
 
-Documentation: [GoMarket API Documentation](https://gomarket.dev/docs)
+For complete API documentation: https://docs.goquant.io/access_gomarket (access code: 2194)
