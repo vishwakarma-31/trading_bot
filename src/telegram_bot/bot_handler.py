@@ -8,7 +8,8 @@ import threading
 from datetime import datetime
 from typing import List, Dict
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext, CallbackQueryHandler
+from telegram.ext import Updater, CommandHandler, MessageHandler, CallbackContext, CallbackQueryHandler
+from telegram.ext import filters as Filters
 from config.config_manager import ConfigManager
 from config.user_config_manager import UserConfigManager
 from data_processing.arbitrage_detector import ArbitrageDetector
@@ -84,7 +85,7 @@ class TelegramBotHandler:
             dispatcher.add_handler(CallbackQueryHandler(self._button_callback))
             
             # Register message handler
-            dispatcher.add_handler(MessageHandler(Filters.text & (~Filters.command), self._echo_message))
+            dispatcher.add_handler(MessageHandler(Filters.TEXT & (~Filters.COMMAND), self._echo_message))
             
             # Start the bot
             self.updater.start_polling()

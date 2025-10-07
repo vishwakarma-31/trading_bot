@@ -56,7 +56,9 @@ def demo_complete_system():
     
     for exchange, symbols in all_symbols.items():
         if symbols:
-            test_symbols.extend(symbols[:2])  # Take up to 2 symbols per exchange
+            # Extract symbol names from the symbol dictionaries
+            symbol_names = [symbol['name'] if isinstance(symbol, dict) else symbol for symbol in symbols[:2]]
+            test_symbols.extend(symbol_names)  # Take up to 2 symbols per exchange
             test_exchanges.append(exchange)
         if len(test_symbols) >= 2 and len(test_exchanges) >= 2:  # Test with up to 2 symbols and 2 exchanges
             break
