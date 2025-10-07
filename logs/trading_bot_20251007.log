@@ -1,0 +1,18 @@
+2025-10-07 15:11:17,862 - application.app_controller - INFO - app_controller.py:69 - initialize() - Logging system initialized
+2025-10-07 15:11:17,863 - application.app_controller - INFO - app_controller.py:73 - initialize() - Market data fetcher initialized
+2025-10-07 15:11:17,871 - data_processing.arbitrage_statistics - INFO - arbitrage_statistics.py:88 - _init_sqlite() - SQLite database initialized for arbitrage logging
+2025-10-07 15:11:17,872 - application.app_controller - INFO - app_controller.py:77 - initialize() - Arbitrage detector initialized
+2025-10-07 15:11:17,873 - data_processing.arbitrage_statistics - INFO - arbitrage_statistics.py:88 - _init_sqlite() - SQLite database initialized for arbitrage logging
+2025-10-07 15:11:17,874 - data_processing.persistence_manager - INFO - persistence_manager.py:164 - load_persistence_data() - Monitoring states file persistence_data.json not found, using defaults
+2025-10-07 15:11:17,874 - data_processing.service_controller - INFO - service_controller.py:48 - __init__() - Service controller initialized
+2025-10-07 15:11:17,875 - application.app_controller - INFO - app_controller.py:81 - initialize() - Service controller initialized
+2025-10-07 15:11:17,875 - config.user_config_manager - INFO - user_config_manager.py:404 - load_config() - Configuration file user_config.json not found, using defaults
+2025-10-07 15:11:17,876 - data_processing.arbitrage_statistics - INFO - arbitrage_statistics.py:88 - _init_sqlite() - SQLite database initialized for arbitrage logging
+2025-10-07 15:11:17,876 - data_processing.persistence_manager - INFO - persistence_manager.py:164 - load_persistence_data() - Monitoring states file persistence_data.json not found, using defaults
+2025-10-07 15:11:17,876 - data_processing.service_controller - INFO - service_controller.py:48 - __init__() - Service controller initialized
+2025-10-07 15:11:17,877 - application.app_controller - INFO - app_controller.py:89 - initialize() - Telegram bot handler initialized
+2025-10-07 15:11:17,877 - application.app_controller - INFO - app_controller.py:91 - initialize() - Application initialization completed successfully
+2025-10-07 15:11:17,877 - application.app_controller - INFO - app_controller.py:112 - start() - Starting GoQuant Trading Bot...
+2025-10-07 15:11:17,877 - telegram_bot.bot_handler - ERROR - bot_handler.py:53 - start() - Telegram bot token not configured!
+2025-10-07 15:11:17,878 - application.app_controller - INFO - app_controller.py:117 - start() - Telegram bot started
+2025-10-07 15:11:17,878 - application.app_controller - INFO - app_controller.py:133 - _main_loop() - Entering main application loop
