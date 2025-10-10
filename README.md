@@ -18,6 +18,8 @@ This system provides two main services:
 
 ## Quick Start
 
+### Option 1: With GoMarket API (Full Functionality)
+
 1. Create a Python virtual environment:
    ```bash
    python -m venv venv
@@ -38,6 +40,31 @@ This system provides two main services:
 4. Run the bot:
    ```bash
    python src/main.py
+   ```
+
+### Option 2: With Mock Data (No API Required)
+
+If you don't have access to the GoMarket API, you can run the system with simulated market data:
+
+1. Create a Python virtual environment (if not already done):
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+2. Install required dependencies (if not already done):
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Run the mock version:
+   ```bash
+   python src/main_mock.py
+   ```
+   
+   Or on Windows:
+   ```bash
+   run_mock.bat
    ```
 
 For detailed instructions, see [Setup Guide](docs/setup_deployment_guide.md)

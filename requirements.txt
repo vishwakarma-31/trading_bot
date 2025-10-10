@@ -1,10 +1,11 @@
 # GoQuant Trading Bot - Requirements
 # This file lists all Python dependencies with their versions
 
-python-telegram-bot==20.7
+python-telegram-bot==22.5
 requests==2.31.0
 websocket-client==1.6.1
 aiohttp==3.9.5
 asyncio-mqtt==0.11.0
 asyncio==3.4.3
 websockets==10.3
+pytz==2025.2

@@ -8,7 +8,7 @@ import threading
 from datetime import datetime
 from typing import List, Dict, Optional
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import Updater, CommandHandler, MessageHandler, CallbackContext, CallbackQueryHandler
+from telegram.ext import Application, CommandHandler, MessageHandler, CallbackContext, CallbackQueryHandler
 from telegram.ext import filters as Filters
 from config.config_manager import ConfigManager
 from config.user_config_manager import UserConfigManager
@@ -41,7 +41,7 @@ class TelegramBotHandler:
         if self.arbitrage_detector is None and self.service_controller is not None:
             self.arbitrage_detector = self.service_controller.arbitrage_detector
             
-        self.updater = None
+        self.application = None
         self.logger = logging.getLogger(__name__)
         self.supported_exchanges = ['okx', 'deribit', 'bybit', 'binance']
         self.arbitrage_monitoring_symbols = []  # Track symbols being monitored for arbitrage
@@ -52,14 +52,6 @@ class TelegramBotHandler:
         self.market_view_update_interval = 30  # Seconds between market view updates
         self.last_market_view_update = 0  # Timestamp of last market view update
 
-        self.last_market_view_update = 0  # Timestamp of last market view update
-
-        self.last_market_view_update = 0  # Timestamp of last market view update
-
-        self.last_market_view_update = 0  # Timestamp of last market view update
-
-        self.last_market_view_update = 0  # Timestamp of last market view update
-        
     def start(self):
         """Start the Telegram bot"""
         try:
@@ -67,10 +59,12 @@ class TelegramBotHandler:
                 self.logger.error("Telegram bot token not configured!")
                 return
                 
-            # For python-telegram-bot v20+, we use Application instead of Updater
-            from telegram.ext import Application
-            self.application = Application.builder().token(self.config.telegram_token).build()
-            self.updater = self.application.updater
+            # For python-telegram-bot v22+, we use Application
+            self.application = (
+                Application.builder()
+                .token(self.config.telegram_token)
+                .build()
+            )
             
             # Register command handlers
             self.application.add_handler(CommandHandler('start', self._start_command))
@@ -104,11 +98,8 @@ class TelegramBotHandler:
             self.application.add_handler(MessageHandler(Filters.TEXT & (~Filters.COMMAND), self._echo_message))
             
             # Start the bot
-            self.application.run_polling()
+            self.application.run_polling(allowed_updates=Update.ALL_TYPES)
             self.logger.info("Telegram bot started successfully")
-            
-            # Add this chat to alert subscribers
-            # Note: We'll add subscribers when they interact with the bot
             
         except Exception as e:
             log_exception(self.logger, e, "Failed to start Telegram bot")
@@ -118,7 +109,7 @@ class TelegramBotHandler:
         """Stop the Telegram bot"""
         try:
             if self.application:
-                # In v20+, we need to stop the application properly
+                # In v22+, we need to stop the application properly
                 import asyncio
                 if hasattr(self.application, 'stop'):
                     asyncio.run(self.application.stop())
@@ -1493,63 +1484,63 @@ Use /config to manage your configuration.
             if data == 'menu_main':
                 await self._show_main_menu(user_id, chat_id, context)
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             # Menu navigation
             elif data == 'menu_arb':
                 await self._show_arbitrage_config_menu(user_id, chat_id, context)
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             elif data == 'menu_market':
                 await self._show_market_view_config_menu(user_id, chat_id, context)
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             elif data == 'menu_alerts':
                 await self._show_alerts_menu(user_id, chat_id, context)
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             elif data == 'menu_config':
                 await self._show_config_menu(user_id, chat_id, context)
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             elif data == 'menu_status':
                 await self._status_command(update, context)
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             # Configuration menu navigation
             elif data == 'config_main':
                 await self._show_config_menu(user_id, chat_id, context)
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             elif data == 'config_arb_menu':
                 await self._show_arbitrage_config_menu(user_id, chat_id, context)
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             elif data == 'config_market_menu':
                 await self._show_market_view_config_menu(user_id, chat_id, context)
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             elif data == 'config_prefs_menu':
                 await self._show_preferences_menu(user_id, chat_id, context)
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             elif data == 'config_save':
@@ -1577,7 +1568,7 @@ Use /config to manage your configuration.
             elif data == 'config_arb_exchanges':
                 await self._show_exchange_selection_menu(user_id, chat_id, context, 'config_arb_exchange')
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             elif data == 'config_arb_thresholds':
@@ -1597,13 +1588,13 @@ Use /config to manage your configuration.
             elif data == 'config_arb_threshold_percent':
                 await self._show_threshold_input_menu(user_id, chat_id, context, 'percent')
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             elif data == 'config_arb_threshold_absolute':
                 await self._show_threshold_input_menu(user_id, chat_id, context, 'absolute')
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             elif data == 'config_arb_max_monitors':
@@ -1622,13 +1613,13 @@ Use /config to manage your configuration.
             elif data == 'config_mv_symbols':
                 await self._show_symbol_selection_menu(user_id, chat_id, context, 'config_mv_symbol')
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             elif data == 'config_mv_exchanges':
                 await self._show_exchange_selection_menu(user_id, chat_id, context, 'config_mv_exchange')
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             elif data == 'config_mv_frequency':
@@ -1750,39 +1741,39 @@ Use /config to manage your configuration.
             elif data == 'refresh_status':
                 await self._status_command(update, context)
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             elif data == 'refresh_arbitrage':
                 await self._arbitrage_command(update, context)
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             elif data == 'refresh_arb_status':
                 await self._status_arb_command(update, context)
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             elif data == 'refresh_market_status':
                 await self._status_market_command(update, context)
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             elif data == 'stop_arb':
                 # Handle stop arbitrage from button
                 await self._stop_arb_command(update, context)
                 if query.message:
-                    await query.message.edit_text(text="⏹️ Stopped arbitrage monitoring.")
+                    await query.edit_message_text(text="⏹️ Stopped arbitrage monitoring.")
                 return
                 
             elif data == 'stop_market':
                 # Handle stop market view from button
                 await self._stop_market_command(update, context)
                 if query.message:
-                    await query.message.edit_text(text="⏹️ Stopped market view monitoring.")
+                    await query.edit_message_text(text="⏹️ Stopped market view monitoring.")
                 return
                 
             elif data.startswith('refresh_cbbo_'):
@@ -1794,7 +1785,7 @@ Use /config to manage your configuration.
                 new_context.args = new_args
                 await self._get_cbbo_command(update, new_context)
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             elif data == 'refresh_stats':
@@ -1803,7 +1794,7 @@ Use /config to manage your configuration.
                 new_context.args = []
                 await self._arb_stats_command(update, new_context)
                 if query.message:
-                    await query.message.delete()
+                    await query.delete_message()
                 return
                 
             # Exchange selection
@@ -1814,7 +1805,7 @@ Use /config to manage your configuration.
                     await query.answer(f"Selected exchange: {exchange.upper()}")
                 else:
                     if query.message:
-                        await query.message.edit_text(text="✅ Exchange selection updated.")
+                        await query.edit_message_text(text="✅ Exchange selection updated.")
                     
             # Symbol selection
             elif data.startswith('config_mv_symbol_'):
@@ -1824,12 +1815,12 @@ Use /config to manage your configuration.
                     await query.answer(f"Selected symbol: {symbol_part}")
                 else:
                     if query.message:
-                        await query.message.edit_text(text="✅ Symbol selection updated.")
+                        await query.edit_message_text(text="✅ Symbol selection updated.")
                     
             # Custom symbol input
             elif data.endswith('_custom'):
                 if query.message:
-                    await query.message.edit_text(text="Please enter a custom symbol:")
+                    await query.edit_message_text(text="Please enter a custom symbol:")
                 # Set user state to expect symbol input
                 self.user_states[chat_id] = {
                     'state': 'waiting_custom_symbol',
@@ -1842,7 +1833,7 @@ Use /config to manage your configuration.
             log_exception(self.logger, e, "Error in button callback")
             try:
                 if update.callback_query and update.callback_query.message:
-                    await update.callback_query.message.edit_text(text=self._format_error_message(e))
+                    await update.callback_query.edit_message_text(text=self._format_error_message(e))
             except Exception as send_error:
                 self.logger.error(f"Failed to send error message: {send_error}")
             
