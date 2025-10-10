@@ -364,6 +364,27 @@ FUNCTION validate_symbol(symbol):
 3. **Rate Limiting**: Respect API rate limits to avoid throttling
 4. **Error Recovery**: Quickly recover from network errors
 
+## 7. Historical Statistics
+
+### 7.1 Arbitrage Opportunity Tracking
+
+The system tracks historical arbitrage opportunities to provide insights:
+
+1. **Opportunity Count**: Total number of detected opportunities
+2. **Average Spread**: Average profit percentage across opportunities
+3. **Maximum Spread**: Highest profit percentage observed
+4. **Symbol Distribution**: Opportunities by trading symbol
+5. **Exchange Pair Distribution**: Opportunities by exchange pair
+
+### 7.2 Statistical Analysis
+
+Statistical analysis features include:
+
+1. **Time-based Analysis**: Opportunities over different time periods
+2. **Symbol-based Analysis**: Performance metrics for specific symbols
+3. **Exchange-based Analysis**: Performance metrics for exchange pairs
+4. **Threshold-based Analysis**: Effectiveness of different threshold settings
+
 ## Conclusion
 
 This documentation provides a comprehensive overview of the core algorithms and logic used in the GoQuant Trading Bot. The system is designed to be robust, efficient, and capable of handling various edge cases while providing accurate arbitrage detection and market view calculations.

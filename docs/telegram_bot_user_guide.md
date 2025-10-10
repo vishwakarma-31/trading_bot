@@ -150,6 +150,18 @@ The GoQuant Trading Bot provides a comprehensive Telegram interface for monitori
 /arbitrage
 ```
 
+#### `/arb_stats`
+**Purpose**: View arbitrage statistics
+**Syntax**: `/arb_stats` or `/arb_stats <symbol>`
+**Parameters**: 
+- `symbol`: Optional symbol to view statistics for
+**Description**: Display historical arbitrage statistics for all symbols or a specific symbol.
+**Examples**: 
+```
+/arb_stats
+/arb_stats BTC-USDT
+```
+
 ### Consolidated Market View Commands
 
 #### `/view_market`
@@ -221,7 +233,7 @@ The GoQuant Trading Bot provides a comprehensive Telegram interface for monitori
 
 3. **Start Monitoring**:
    ```
-   /monitor_arb BTC-USDT_on_binance BTC-USIT_on_okx
+   /monitor_arb BTC-USDT_on_binance BTC-USDT_on_okx
    ```
 
 4. **Verify Monitoring Status**:
@@ -234,7 +246,12 @@ The GoQuant Trading Bot provides a comprehensive Telegram interface for monitori
    /arbitrage
    ```
 
-6. **Stop Monitoring** (When Done):
+6. **View Statistics**:
+   ```
+   /arb_stats
+   ```
+
+7. **Stop Monitoring** (When Done):
    ```
    /stop_arb
    ```

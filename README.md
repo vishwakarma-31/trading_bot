@@ -10,8 +10,8 @@ This system provides two main services:
 
 ## Technology Stack
 
-- Language: Python only
-- Telegram Bot API (using python-telegram-bot library)
+- Language: Python 3.8+
+- Telegram Bot API (using python-telegram-bot library v22.5)
 - GoMarket API (access code: 2194)
 - WebSocket for real-time data acquisition
 - Supported exchanges: Binance SPOT, OKX SPOT, Bybit SPOT, Deribit SPOT
@@ -89,6 +89,9 @@ src/
 - `/help` - Show available commands
 - `/status` - Check bot status
 - `/list_symbols <exchange> <market_type>` - List available symbols for an exchange
+- `/menu` - Open interactive menu
+- `/alerts` - Manage alert settings
+- `/config` - Manage user configuration
 
 ### Arbitrage Signal Service
 - `/monitor_arb <asset1_on_exchangeA> <asset2_on_exchangeB> <threshold>` - Start monitoring arbitrage
@@ -97,6 +100,8 @@ src/
 - `/status_arb` - Show arbitrage monitoring status
 - `/threshold <percent> <absolute>` - Set arbitrage thresholds
 - `/arbitrage` - Get current arbitrage opportunities
+- `/arb_stats` - Show overall statistics
+- `/arb_stats <symbol>` - Show statistics for specific symbol
 
 ### Consolidated Market View Service
 - `/view_market <symbol> <exchange1> <exchange2> ...` - Start market view monitoring
@@ -144,6 +149,7 @@ For detailed configuration instructions, see [Setup Guide](docs/setup_deployment
 - Telegram alerts for opportunities
 - Multi-asset monitoring capability
 - Service start/stop controls
+- Historical statistics tracking
 
 ### Consolidated Market View Service
 - Unified market data display

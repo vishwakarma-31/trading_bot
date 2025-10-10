@@ -32,6 +32,7 @@ graph TB
         subgraph "Data Processing Submodules"
             F1[Arbitrage Detector]
             F2[Market View Manager]
+            F3[Persistence Manager]
         end
         
         subgraph "Data Acquisition Submodules"
@@ -190,6 +191,16 @@ graph TB
 - **Update Frequency**: How often to update market data
 - **Change Thresholds**: Significant change thresholds for alerts
 
+#### 4.3 Persistence Manager
+
+**Purpose**: Manages persistent storage of monitoring states and historical data.
+
+**Features**:
+- **State Persistence**: Save and restore monitoring states on restart
+- **Historical Data Storage**: Store arbitrage opportunities for analysis
+- **Configuration Storage**: Persist user configurations
+- **Data Export**: Export data for external analysis
+
 ### 5. Telegram Bot Module
 
 **Purpose**: Provides a user interface through Telegram for controlling the trading bot and receiving alerts.
@@ -213,7 +224,7 @@ graph TB
 
 **Commands**:
 - **Basic Commands**: `/start`, `/help`, `/status`, `/list_symbols`, `/menu`, `/alerts`, `/config`
-- **Arbitrage Commands**: `/monitor_arb`, `/stop_arb`, `/config_arb`, `/status_arb`, `/threshold`, `/arbitrage`
+- **Arbitrage Commands**: `/monitor_arb`, `/stop_arb`, `/config_arb`, `/status_arb`, `/threshold`, `/arbitrage`, `/arb_stats`
 - **Market View Commands**: `/view_market`, `/stop_market`, `/get_cbbo`, `/config_market`, `/status_market`
 
 **Interactions**:
@@ -384,7 +395,8 @@ The system uses a hybrid approach where WebSocket is preferred for real-time dat
 
 ### Why Specific Python Libraries
 
-**python-telegram-bot**:
+**python-telegram-bot (v22.5)**:
+- **Latest Version**: Uses the most recent version with improved async support
 - **Mature Library**: Well-established with comprehensive documentation
 - **Active Development**: Regular updates and bug fixes
 - **Feature Rich**: Supports all required Telegram bot features

@@ -91,13 +91,14 @@ pip install -r requirements.txt
 ```
 
 The required dependencies are:
-- python-telegram-bot==13.15
+- python-telegram-bot==22.5
 - requests==2.31.0
 - websocket-client==1.6.1
-- aiohttp==3.8.5
+- aiohttp==3.9.5
 - asyncio-mqtt==0.11.0
 - asyncio==3.4.3
 - websockets==10.3
+- pytz==2025.2
 
 ### 4. Configure API Keys and Tokens
 
