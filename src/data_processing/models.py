@@ -3,7 +3,7 @@ Data Models for the Generic Trading Bot
 Contains all dataclass definitions to avoid circular imports
 """
 from dataclasses import dataclass
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 @dataclass
 class ArbitrageOpportunity:
@@ -34,7 +34,7 @@ class MarketViewData:
 class ConsolidatedMarketView:
     """Represents consolidated market view across multiple exchanges"""
     symbol: str
-    exchanges_data: Dict[str, 'MarketViewData']
+    exchanges_data: Dict[str, MarketViewData]
     cbbo_bid_exchange: str  # Exchange with best bid
     cbbo_ask_exchange: str  # Exchange with best ask
     cbbo_bid_price: float   # Best bid price
@@ -46,14 +46,3 @@ class ThresholdConfig:
     """Configuration for arbitrage thresholds"""
     min_profit_percentage: float = 0.5  # Minimum profit percentage
     min_profit_absolute: float = 1.0    # Minimum profit in absolute value (USD)
-
-@dataclass
-class ArbitrageStatistics:
-    """Statistics for arbitrage opportunities"""
-    total_opportunities: int = 0
-    average_spread: float = 0.0
-    max_spread: float = 0.0
-    opportunities_by_symbol: Dict[str, int] = None
-    opportunities_by_exchange_pair: Dict[str, int] = None
-    start_time: float = 0.0
-    end_time: float = 0.0
