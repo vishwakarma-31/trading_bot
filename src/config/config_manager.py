@@ -11,7 +11,7 @@ class ConfigManager:
         """Initialize configuration manager"""
         self._telegram_token = os.getenv('TELEGRAM_BOT_TOKEN')
         self._gomarket_api_key = os.getenv('GOMARKET_API_KEY')
-        self._gomarket_access_code = "2194"
+        self._gomarket_access_code = os.getenv('GOMARKET_ACCESS_CODE', '2194')
         self._min_profit_percentage = float(os.getenv('MIN_PROFIT_PERCENTAGE', '0.5'))
         self._min_profit_absolute = float(os.getenv('MIN_PROFIT_ABSOLUTE', '1.0'))
         

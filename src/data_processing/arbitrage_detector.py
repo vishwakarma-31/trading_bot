@@ -10,30 +10,11 @@ from collections import defaultdict, deque
 from data_acquisition.market_data_fetcher import MarketDataFetcher
 from config.config_manager import ConfigManager
 from data_processing.arbitrage_statistics import ArbitrageLogger
+from data_processing.models import ArbitrageOpportunity, ThresholdConfig
 from utils.error_handler import (
     DataProcessingError, InvalidDataError, MissingDataError, CalculationError,
     ThresholdValidationError, log_exception, handle_exception
 )
-
-@dataclass
-class ArbitrageOpportunity:
-    """Represents an arbitrage opportunity"""
-    symbol: str
-    buy_exchange: str
-    sell_exchange: str
-    buy_price: float
-    sell_price: float
-    profit_percentage: float
-    profit_absolute: float
-    timestamp: float
-    threshold_percentage: float
-    threshold_absolute: float
-
-@dataclass
-class ThresholdConfig:
-    """Configuration for arbitrage thresholds"""
-    min_profit_percentage: float = 0.5  # Minimum profit percentage
-    min_profit_absolute: float = 1.0    # Minimum profit in absolute value (USD)
     
 class ArbitrageDetector:
     """Detects arbitrage opportunities across exchanges"""

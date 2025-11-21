@@ -11,19 +11,7 @@ from typing import List, Dict, Optional
 from dataclasses import dataclass, asdict
 from collections import defaultdict
 from datetime import datetime, timedelta
-# Note: We can't import ArbitrageOpportunity directly due to circular imports
-# Instead, we'll use the dataclass definition directly or pass data as dictionaries
-
-@dataclass
-class ArbitrageStatistics:
-    """Statistics for arbitrage opportunities"""
-    total_opportunities: int = 0
-    average_spread: float = 0.0
-    max_spread: float = 0.0
-    opportunities_by_symbol: Dict[str, int] = None
-    opportunities_by_exchange_pair: Dict[str, int] = None
-    start_time: float = 0.0
-    end_time: float = 0.0
+from data_processing.models import ArbitrageStatistics
 
 class ArbitrageLogger:
     """Handles logging of arbitrage opportunities and statistics calculation"""

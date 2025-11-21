@@ -8,32 +8,11 @@ from typing import Dict, List, Optional
 from dataclasses import dataclass, asdict
 from collections import defaultdict, deque
 from data_acquisition.market_data_fetcher import MarketDataFetcher
+from data_processing.models import MarketViewData, ConsolidatedMarketView
 from utils.error_handler import (
     DataProcessingError, InvalidDataError, MissingDataError,
     log_exception, handle_exception
 )
-
-@dataclass
-class MarketViewData:
-    """Represents market view data for a symbol on an exchange"""
-    symbol: str
-    exchange: str
-    bid_price: float
-    ask_price: float
-    bid_size: float
-    ask_size: float
-    timestamp: float
-
-@dataclass
-class ConsolidatedMarketView:
-    """Represents consolidated market view across multiple exchanges"""
-    symbol: str
-    exchanges_data: Dict[str, MarketViewData]
-    cbbo_bid_exchange: str  # Exchange with best bid
-    cbbo_ask_exchange: str  # Exchange with best ask
-    cbbo_bid_price: float   # Best bid price
-    cbbo_ask_price: float   # Best ask price
-    timestamp: float
 
 class MarketViewManager:
     """Manages consolidated market view across multiple exchanges"""

@@ -14,6 +14,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from config.config_manager import ConfigManager
 from telegram_bot.bot_handler import TelegramBotHandler
+from telegram_bot.alert_manager import AlertManager
 from data_acquisition.market_data_fetcher import MarketDataFetcher
 from data_processing.arbitrage_detector import ArbitrageDetector
 from data_processing.service_controller import ServiceController
@@ -86,6 +87,11 @@ class ApplicationController:
                 self.arbitrage_detector, 
                 self.market_fetcher
             )
+            # Update the service controller with the application object
+            if self.bot_handler.application and self.service_controller:
+                # Update alert manager in service controller with application object
+                if hasattr(self.service_controller.arbitrage_detector, 'alert_manager') and self.service_controller.arbitrage_detector.alert_manager:
+                    self.service_controller.arbitrage_detector.alert_manager.application = self.bot_handler.application
             self.logger.info("Telegram bot handler initialized")
             
             self.logger.info("Application initialization completed successfully")
@@ -115,6 +121,23 @@ class ApplicationController:
             # Start Telegram bot
             self.bot_handler.start()
             self.logger.info("Telegram bot started")
+            
+            # Update alert manager in service controller with application object
+            if self.bot_handler.application and self.service_controller:
+                # Update alert manager in arbitrage detector
+                if hasattr(self.service_controller.arbitrage_detector, 'alert_manager'):
+                    self.service_controller.arbitrage_detector.alert_manager = AlertManager(
+                        self.config.telegram_token, 
+                        self.bot_handler.application
+                    )
+                
+                # Update alert manager in service controller's market view manager if it exists
+                if hasattr(self.service_controller, 'market_view_manager') and self.service_controller.market_view_manager:
+                    if hasattr(self.service_controller.market_view_manager, 'alert_manager'):
+                        self.service_controller.market_view_manager.alert_manager = AlertManager(
+                            self.config.telegram_token, 
+                            self.bot_handler.application
+                        )
             
             # Main event loop
             self._main_loop()

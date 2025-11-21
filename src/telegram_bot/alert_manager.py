@@ -5,19 +5,20 @@ Handles sending formatted notifications to Telegram for arbitrage and market vie
 import logging
 import time
 import threading
+import asyncio
 from typing import Dict, List, Optional
 from telegram import Bot
 from telegram.error import TelegramError
-from data_processing.arbitrage_detector import ArbitrageOpportunity
-from data_processing.market_view import ConsolidatedMarketView
+from data_processing.models import ArbitrageOpportunity, ConsolidatedMarketView
 
 class AlertManager:
     """Manages alert notifications for the Telegram bot"""
     
-    def __init__(self, bot_token: str):
+    def __init__(self, bot_token: str, application=None):
         """Initialize alert manager"""
         self.bot_token = bot_token
-        self.bot = Bot(token=bot_token)
+        self.application = application
+        self.bot = Bot(token=bot_token) if application is None else None
         self.logger = logging.getLogger(__name__)
         self.subscribers = set()  # Chat IDs to send alerts to
         self.sent_alerts = {}  # Track sent alert messages for editing
@@ -67,7 +68,15 @@ class AlertManager:
         for chat_id in self.subscribers:
             try:
                 self._rate_limit_check()
-                msg = self.bot.send_message(chat_id=chat_id, text=message, parse_mode=parse_mode)
+                if self.application is not None:
+                    # Use asyncio.run_coroutine_threadsafe for async operations
+                    future = asyncio.run_coroutine_threadsafe(
+                        self.application.bot.send_message(chat_id=chat_id, text=message, parse_mode=parse_mode),
+                        self.application.loop
+                    )
+                    msg = future.result()
+                else:
+                    msg = self.bot.send_message(chat_id=chat_id, text=message, parse_mode=parse_mode)
                 sent_messages[chat_id] = msg.message_id
                 self.logger.info(f"Sent alert to chat {chat_id}")
             except TelegramError as e:
@@ -92,12 +101,25 @@ class AlertManager:
             bool: True if successful, False otherwise
         """
         try:
-            self.bot.edit_message_text(
-                chat_id=chat_id,
-                message_id=message_id,
-                text=new_message,
-                parse_mode=parse_mode
-            )
+            if self.application is not None:
+                # Use asyncio.run_coroutine_threadsafe for async operations
+                future = asyncio.run_coroutine_threadsafe(
+                    self.application.bot.edit_message_text(
+                        chat_id=chat_id,
+                        message_id=message_id,
+                        text=new_message,
+                        parse_mode=parse_mode
+                    ),
+                    self.application.loop
+                )
+                future.result()
+            else:
+                self.bot.edit_message_text(
+                    chat_id=chat_id,
+                    message_id=message_id,
+                    text=new_message,
+                    parse_mode=parse_mode
+                )
             self.logger.info(f"Updated alert message for chat {chat_id}")
             return True
         except TelegramError as e:

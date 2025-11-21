@@ -2,6 +2,7 @@
 # This file lists all Python dependencies with their versions
 
 python-telegram-bot==22.5
+python-dotenv==1.0.0
 requests==2.31.0
 websocket-client==1.6.1
 aiohttp==3.9.5

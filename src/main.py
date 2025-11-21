@@ -3,9 +3,13 @@ Main entry point for the GoQuant Trading Bot
 """
 import sys
 import os
+from dotenv import load_dotenv
 
 # Add src to path to import modules
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
+# Load environment variables
+load_dotenv()
 
 from application.app_controller import ApplicationController
 

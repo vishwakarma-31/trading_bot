@@ -5,6 +5,7 @@ import logging
 import re
 import time
 import threading
+import asyncio
 from datetime import datetime
 from typing import List, Dict, Optional
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
@@ -34,7 +35,7 @@ class TelegramBotHandler:
         self.market_fetcher = market_fetcher
         self.service_controller = ServiceController(market_fetcher, config) if market_fetcher else None
         self.market_view_manager = MarketViewManager(market_fetcher) if market_fetcher else None
-        self.alert_manager = AlertManager(config.telegram_token) if config.telegram_token else None
+        self.alert_manager = AlertManager(config.telegram_token, self.application) if config.telegram_token else None
         
         # If no arbitrage_detector was provided but we have a service_controller,
         # use the one from the service_controller
@@ -97,9 +98,14 @@ class TelegramBotHandler:
             # Register message handler
             self.application.add_handler(MessageHandler(Filters.TEXT & (~Filters.COMMAND), self._echo_message))
             
-            # Start the bot
-            self.application.run_polling(allowed_updates=Update.ALL_TYPES)
-            self.logger.info("Telegram bot started successfully")
+            # Start the bot in a separate thread to avoid blocking
+            def run_bot():
+                asyncio.set_event_loop(self.application.loop)
+                self.application.run_polling(allowed_updates=Update.ALL_TYPES)
+                
+            bot_thread = threading.Thread(target=run_bot, daemon=True)
+            bot_thread.start()
+            self.logger.info("Telegram bot started successfully in separate thread")
             
         except Exception as e:
             log_exception(self.logger, e, "Failed to start Telegram bot")
