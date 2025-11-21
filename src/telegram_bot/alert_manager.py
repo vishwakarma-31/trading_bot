@@ -1,5 +1,5 @@
 """
-Alert Manager for the GoQuant Trading Bot
+Alert Manager for the Generic Trading Bot
 Handles sending formatted notifications to Telegram for arbitrage and market view services.
 """
 import logging

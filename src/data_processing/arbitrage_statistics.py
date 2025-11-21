@@ -1,5 +1,5 @@
 """
-Arbitrage Statistics and Historical Logging for the GoQuant Trading Bot
+Arbitrage Statistics and Historical Logging for the Generic Trading Bot
 """
 import logging
 import json

@@ -1,5 +1,5 @@
 """
-Main entry point for the GoQuant Trading Bot
+Main entry point for the Generic Trading Bot
 """
 import sys
 import os

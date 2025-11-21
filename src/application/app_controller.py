@@ -1,5 +1,5 @@
 """
-Application Controller for the GoQuant Trading Bot
+Application Controller for the Generic Trading Bot
 Manages the main application loop and integration of all modules
 """
 import logging
@@ -59,7 +59,7 @@ class ApplicationController:
         """
         try:
             self.logger = get_logger(__name__)
-            self.logger.info("Initializing GoQuant Trading Bot...")
+            self.logger.info("Initializing Generic Trading Bot...")
             
             # Initialize configuration
             self.config = ConfigManager()
@@ -115,7 +115,7 @@ class ApplicationController:
             if not self.initialize():
                 raise ApplicationInitializationError("Failed to initialize application")
                 
-            self.logger.info("Starting GoQuant Trading Bot...")
+            self.logger.info("Starting Generic Trading Bot...")
             self.running = True
             
             # Start Telegram bot
@@ -176,7 +176,7 @@ class ApplicationController:
     def stop(self):
         """Stop the application gracefully"""
         try:
-            self.logger.info("Stopping GoQuant Trading Bot...")
+            self.logger.info("Stopping Generic Trading Bot...")
             self.running = False
             self.shutdown_event.set()
             

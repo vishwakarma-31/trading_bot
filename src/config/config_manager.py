@@ -1,8 +1,8 @@
 """
-Configuration Manager for the GoQuant Trading Bot
+Configuration Manager for the Generic Trading Bot
 """
 import os
-from typing import Optional
+from typing import Optional, Dict, Any
 
 class ConfigManager:
     """Manages all configuration settings for the trading bot"""
@@ -10,10 +10,19 @@ class ConfigManager:
     def __init__(self):
         """Initialize configuration manager"""
         self._telegram_token = os.getenv('TELEGRAM_BOT_TOKEN')
-        self._gomarket_api_key = os.getenv('GOMARKET_API_KEY')
-        self._gomarket_access_code = os.getenv('GOMARKET_ACCESS_CODE', '2194')
         self._min_profit_percentage = float(os.getenv('MIN_PROFIT_PERCENTAGE', '0.5'))
         self._min_profit_absolute = float(os.getenv('MIN_PROFIT_ABSOLUTE', '1.0'))
+        # Exchange configurations
+        self._exchange_configs = {
+            'binance': {
+                'enabled': os.getenv('BINANCE_ENABLED', 'true').lower() == 'true',
+                'rate_limit': float(os.getenv('BINANCE_RATE_LIMIT', '0.1'))
+            },
+            'okx': {
+                'enabled': os.getenv('OKX_ENABLED', 'true').lower() == 'true',
+                'rate_limit': float(os.getenv('OKX_RATE_LIMIT', '0.1'))
+            }
+        }
         
     @property
     def telegram_token(self) -> Optional[str]:
@@ -25,20 +34,17 @@ class ConfigManager:
         """Set Telegram bot token"""
         self._telegram_token = token
         
-    @property
-    def gomarket_api_key(self) -> Optional[str]:
-        """Get GoMarket API key"""
-        return self._gomarket_api_key
+    def get_exchange_config(self, exchange: str) -> Dict[str, Any]:
+        """Get configuration for a specific exchange"""
+        return self._exchange_configs.get(exchange, {
+            'enabled': True,
+            'rate_limit': 0.1
+        })
         
-    @gomarket_api_key.setter
-    def gomarket_api_key(self, api_key: str):
-        """Set GoMarket API key"""
-        self._gomarket_api_key = api_key
-        
-    @property
-    def gomarket_access_code(self) -> str:
-        """Get GoMarket access code"""
-        return self._gomarket_access_code
+    def get_enabled_exchanges(self) -> list:
+        """Get list of enabled exchanges"""
+        return [exchange for exchange, config in self._exchange_configs.items() 
+                if config.get('enabled', True)]
         
     @property
     def min_profit_percentage(self) -> float:
@@ -60,14 +66,4 @@ class ConfigManager:
         """Set minimum profit absolute value threshold"""
         self._min_profit_absolute = value
         
-    def get_gomarket_symbols_endpoint(self, exchange: str) -> str:
-        """Get GoMarket symbols endpoint for a specific exchange"""
-        return f"https://gomarket-api.goquant.io/api/symbols/{exchange}/spot"
-        
-    def get_gomarket_l1_endpoint(self, exchange: str, symbol: str) -> str:
-        """Get GoMarket L1 market data endpoint"""
-        return f"https://gomarket-api.goquant.io/api/market/l1/{exchange}/{symbol}"
-        
-    def get_gomarket_l2_endpoint(self, exchange: str, symbol: str) -> str:
-        """Get GoMarket L2 order book data endpoint"""
-        return f"https://gomarket-api.goquant.io/api/market/l2/{exchange}/{symbol}"
+    # Removed GoMarket specific API endpoints as we're now using ccxt

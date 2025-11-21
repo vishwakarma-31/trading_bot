@@ -1,5 +1,5 @@
 """
-Market View Module for the GoQuant Trading Bot
+Market View Module for the Generic Trading Bot
 """
 import logging
 import time

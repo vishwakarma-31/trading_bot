@@ -1,6 +1,6 @@
-# GoQuant Trading Bot
+# Generic Trading Bot
 
-A trading information system using GoMarket data with a Telegram bot interface for arbitrage detection and market view services.
+A trading information system using CCXT library to fetch real market data from public exchanges with a Telegram bot interface for arbitrage detection and market view services.
 
 ## System Overview
 
@@ -12,13 +12,13 @@ This system provides two main services:
 
 - Language: Python 3.8+
 - Telegram Bot API (using python-telegram-bot library v22.5)
-- GoMarket API (access code: 2194)
-- WebSocket for real-time data acquisition
-- Supported exchanges: Binance SPOT, OKX SPOT, Bybit SPOT, Deribit SPOT
+- CCXT Library for exchange data fetching
+- REST API polling for market data acquisition
+- Supported exchanges: Binance SPOT, OKX SPOT
 
 ## Quick Start
 
-### Option 1: With GoMarket API (Full Functionality)
+### Option 1: Full Functionality
 
 1. Create a Python virtual environment:
    ```bash
@@ -44,7 +44,7 @@ This system provides two main services:
 
 ### Option 2: With Mock Data (No API Required)
 
-If you don't have access to the GoMarket API, you can run the system with simulated market data:
+You can run the system with simulated market data:
 
 1. Create a Python virtual environment (if not already done):
    ```bash
@@ -75,7 +75,7 @@ For detailed instructions, see [Setup Guide](docs/setup_deployment_guide.md)
 src/
 ├── application/      # Application controller and main loop
 ├── config/           # Configuration management
-├── data_acquisition/ # Market data fetching from GoMarket
+├── data_acquisition/ # Market data fetching using CCXT
 ├── data_processing/  # Arbitrage detection and market view calculations
 ├── telegram_bot/     # Telegram bot interface
 ├── logging_module/   # Logging utilities
@@ -121,14 +121,15 @@ For complete command reference, see [User Guide](docs/telegram_bot_user_guide.md
 
 ## Configuration
 
-Configure your Telegram bot token and GoMarket API key in the `.env` file.
+Configure your Telegram bot token in the `.env` file.
 
 Example `.env`:
 ```env
 TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
-GOMARKET_API_KEY=your_gomarket_api_key_here
 MIN_PROFIT_PERCENTAGE=0.5
 MIN_PROFIT_ABSOLUTE=1.0
+BINANCE_ENABLED=true
+OKX_ENABLED=true
 ```
 
 For detailed configuration instructions, see [Setup Guide](docs/setup_deployment_guide.md)
@@ -137,8 +138,6 @@ For detailed configuration instructions, see [Setup Guide](docs/setup_deployment
 
 - Binance SPOT
 - OKX SPOT
-- Bybit SPOT
-- Deribit SPOT
 
 ## Features
 
@@ -159,8 +158,6 @@ For detailed configuration instructions, see [Setup Guide](docs/setup_deployment
 - On-demand market queries
 - Multi-exchange data aggregation
 
-## GoMarket API Integration
+## Exchange Integration
 
-The system connects to GoMarket to obtain real-time L1 market data (BBO, last trade price) and L2 order book data. Symbol discovery is performed via the endpoint: GET https://gomarket-api.goquant.io/api/symbols/{exchange}/spot
-
-For complete API documentation: https://docs.goquant.io/access_gomarket (access code: 2194)
+The system connects to public exchanges using the CCXT library to obtain real-time L1 market data (BBO, last trade price) and L2 order book data. Symbol discovery is performed using the exchange's public API.

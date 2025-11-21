@@ -1,5 +1,5 @@
 """
-Arbitrage Detector for the GoQuant Trading Bot
+Arbitrage Detector for the Generic Trading Bot
 """
 import logging
 import time

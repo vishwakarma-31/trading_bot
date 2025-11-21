@@ -1,5 +1,5 @@
 """
-Telegram Bot Handler for the GoQuant Trading Bot
+Telegram Bot Handler for the Generic Trading Bot
 """
 import logging
 import re
@@ -198,7 +198,7 @@ class TelegramBotHandler:
             self.user_config_manager.get_user_config(user_id)
                 
             welcome_text = """
-Welcome to the GoQuant Trading Bot! 🚀
+Welcome to the Generic Trading Bot! 🚀
 
 I'm here to help you monitor arbitrage opportunities and market views across multiple exchanges.
 
@@ -222,7 +222,7 @@ Use /config to manage your configuration.
         try:
             chat_id = update.effective_chat.id if update.effective_chat else self._get_user_id(update)
             help_text = """
-🤖 *GoQuant Trading Bot Commands*
+🤖 *Generic Trading Bot Commands*
 
 *Basic Commands:*
 /start - Welcome message and bot introduction
@@ -232,7 +232,6 @@ Use /config to manage your configuration.
 /menu - Open interactive menu
 /alerts - Manage alert settings
 /config - Manage user configuration
-
 """
             
             if self.arbitrage_detector:

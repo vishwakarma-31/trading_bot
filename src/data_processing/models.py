@@ -1,5 +1,5 @@
 """
-Data Models for the GoQuant Trading Bot
+Data Models for the Generic Trading Bot
 Contains all dataclass definitions to avoid circular imports
 """
 from dataclasses import dataclass

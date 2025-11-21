@@ -1,5 +1,5 @@
 """
-Service Controller for the GoQuant Trading Bot
+Service Controller for the Generic Trading Bot
 Manages the lifecycle of both Arbitrage Signal Service and Market View Service
 """
 import logging
