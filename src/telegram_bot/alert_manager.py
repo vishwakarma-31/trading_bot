@@ -14,10 +14,11 @@ from data_processing.models import ArbitrageOpportunity, ConsolidatedMarketView
 class AlertManager:
     """Manages alert notifications for the Telegram bot"""
     
-    def __init__(self, bot_token: str, application=None):
+    def __init__(self, bot_token: str, application=None, loop=None):
         """Initialize alert manager"""
         self.bot_token = bot_token
         self.application = application
+        self.loop = loop  # Explicit event loop for thread-safe operations
         self.bot = Bot(token=bot_token) if application is None else None
         self.logger = logging.getLogger(__name__)
         self.subscribers = set()  # Chat IDs to send alerts to
@@ -70,9 +71,11 @@ class AlertManager:
                 self._rate_limit_check()
                 if self.application is not None:
                     # Use asyncio.run_coroutine_threadsafe for async operations
+                    # Use the explicit loop if provided, otherwise fall back to application loop
+                    target_loop = self.loop if self.loop is not None else self.application.loop
                     future = asyncio.run_coroutine_threadsafe(
                         self.application.bot.send_message(chat_id=chat_id, text=message, parse_mode=parse_mode),
-                        self.application.loop
+                        target_loop
                     )
                     msg = future.result()
                 else:
@@ -103,6 +106,8 @@ class AlertManager:
         try:
             if self.application is not None:
                 # Use asyncio.run_coroutine_threadsafe for async operations
+                # Use the explicit loop if provided, otherwise fall back to application loop
+                target_loop = self.loop if self.loop is not None else self.application.loop
                 future = asyncio.run_coroutine_threadsafe(
                     self.application.bot.edit_message_text(
                         chat_id=chat_id,
@@ -110,7 +115,7 @@ class AlertManager:
                         text=new_message,
                         parse_mode=parse_mode
                     ),
-                    self.application.loop
+                    target_loop
                 )
                 future.result()
             else:

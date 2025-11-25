@@ -46,3 +46,20 @@ class ThresholdConfig:
     """Configuration for arbitrage thresholds"""
     min_profit_percentage: float = 0.5  # Minimum profit percentage
     min_profit_absolute: float = 1.0    # Minimum profit in absolute value (USD)
+
+@dataclass
+class ArbitrageStatistics:
+    """Represents arbitrage statistics"""
+    total_opportunities: int = 0
+    average_spread: float = 0.0
+    max_spread: float = 0.0
+    opportunities_by_symbol: Dict[str, int] = None
+    opportunities_by_exchange_pair: Dict[str, int] = None
+    start_time: float = 0.0
+    end_time: float = 0.0
+    
+    def __post_init__(self):
+        if self.opportunities_by_symbol is None:
+            self.opportunities_by_symbol = {}
+        if self.opportunities_by_exchange_pair is None:
+            self.opportunities_by_exchange_pair = {}

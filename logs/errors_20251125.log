@@ -1,0 +1,188 @@
+2025-11-25 15:29:06,480 - telegram.ext - ERROR - networkloop.py:150 - network_retry_loop() - Network Retry Loop (Bootstrap Initialize Application): Invalid token. Aborting retry loop.
+Traceback (most recent call last):
+  File "C:\Users\aarya\AppData\Roaming\Python\Python314\site-packages\telegram\_bot.py", line 854, in initialize
+    await self.get_me()
+  File "C:\Users\aarya\AppData\Roaming\Python\Python314\site-packages\telegram\ext\_extbot.py", line 1999, in get_me
+    return await super().get_me(
+           ^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\aarya\AppData\Roaming\Python\Python314\site-packages\telegram\_bot.py", line 985, in get_me
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\aarya\AppData\Roaming\Python\Python314\site-packages\telegram\_bot.py", line 703, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\aarya\AppData\Roaming\Python\Python314\site-packages\telegram\ext\_extbot.py", line 372, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\aarya\AppData\Roaming\Python\Python314\site-packages\telegram\_bot.py", line 732, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\aarya\AppData\Roaming\Python\Python314\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\aarya\AppData\Roaming\Python\Python314\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.InvalidToken: Not Found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\aarya\AppData\Roaming\Python\Python314\site-packages\telegram\ext\_utils\networkloop.py", line 134, in network_retry_loop
+    await do_action()
+  File "C:\Users\aarya\AppData\Roaming\Python\Python314\site-packages\telegram\ext\_utils\networkloop.py", line 109, in do_action
+    await action_cb()
+  File "C:\Users\aarya\AppData\Roaming\Python\Python314\site-packages\telegram\ext\_application.py", line 489, in initialize
+    await self.bot.initialize()
+  File "C:\Users\aarya\AppData\Roaming\Python\Python314\site-packages\telegram\ext\_extbot.py", line 318, in initialize
+    await super().initialize()
+  File "C:\Users\aarya\AppData\Roaming\Python\Python314\site-packages\telegram\_bot.py", line 856, in initialize
+    raise InvalidToken(f"The token `{self._token}` was rejected by the server.") from exc
+telegram.error.InvalidToken: The token `your_telegram_bot_token_here` was rejected by the server.
+2025-11-25 15:33:01,045 - telegram.ext - ERROR - networkloop.py:150 - network_retry_loop() - Network Retry Loop (Bootstrap Initialize Application): Invalid token. Aborting retry loop.
+Traceback (most recent call last):
+  File "D:\Projects\trading_bot\.venv\Lib\site-packages\telegram\_bot.py", line 854, in initialize
+    await self.get_me()
+  File "D:\Projects\trading_bot\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 1999, in get_me
+    return await super().get_me(
+           ^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "D:\Projects\trading_bot\.venv\Lib\site-packages\telegram\_bot.py", line 985, in get_me
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "D:\Projects\trading_bot\.venv\Lib\site-packages\telegram\_bot.py", line 703, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "D:\Projects\trading_bot\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 372, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "D:\Projects\trading_bot\.venv\Lib\site-packages\telegram\_bot.py", line 732, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "D:\Projects\trading_bot\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "D:\Projects\trading_bot\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.InvalidToken: Not Found
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\trading_bot\.venv\Lib\site-packages\telegram\ext\_utils\networkloop.py", line 134, in network_retry_loop
+    await do_action()
+  File "D:\Projects\trading_bot\.venv\Lib\site-packages\telegram\ext\_utils\networkloop.py", line 109, in do_action
+    await action_cb()
+  File "D:\Projects\trading_bot\.venv\Lib\site-packages\telegram\ext\_application.py", line 489, in initialize
+    await self.bot.initialize()
+  File "D:\Projects\trading_bot\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 318, in initialize
+    await super().initialize()
+  File "D:\Projects\trading_bot\.venv\Lib\site-packages\telegram\_bot.py", line 856, in initialize
+    raise InvalidToken(f"The token `{self._token}` was rejected by the server.") from exc
+telegram.error.InvalidToken: The token `your_actual_telegram_bot_token_here` was rejected by the server.
+2025-11-25 15:35:36,765 - telegram_bot.bot_handler - ERROR - error_handler.py:127 - log_exception() - Error stopping Telegram bot: Event loop is closed
+Traceback (most recent call last):
+  File "D:\Projects\trading_bot\src\application\..\telegram_bot\bot_handler.py", line 123, in stop
+    future = asyncio.run_coroutine_threadsafe(self.application.stop(), self.bot_loop)
+  File "C:\Python314\Lib\asyncio\tasks.py", line 1026, in run_coroutine_threadsafe
+    loop.call_soon_threadsafe(callback)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 872, in call_soon_threadsafe
+    self._check_closed()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 550, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+2025-11-25 15:35:36,767 - application.app_controller - ERROR - app_controller.py:197 - stop() - Error stopping application: Error stopping Telegram bot: Event loop is closed
+Traceback (most recent call last):
+  File "D:\Projects\trading_bot\src\application\..\telegram_bot\bot_handler.py", line 123, in stop
+    future = asyncio.run_coroutine_threadsafe(self.application.stop(), self.bot_loop)
+  File "C:\Python314\Lib\asyncio\tasks.py", line 1026, in run_coroutine_threadsafe
+    loop.call_soon_threadsafe(callback)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 872, in call_soon_threadsafe
+    self._check_closed()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 550, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\trading_bot\src\application\app_controller.py", line 185, in stop
+    self.bot_handler.stop()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects\trading_bot\src\application\..\telegram_bot\bot_handler.py", line 131, in stop
+    raise TelegramBotError(f"Error stopping Telegram bot: {e}")
+utils.error_handler.TelegramBotError: Error stopping Telegram bot: Event loop is closed
+2025-11-25 15:39:55,699 - telegram_bot.bot_handler - ERROR - error_handler.py:127 - log_exception() - Error stopping Telegram bot: Event loop is closed
+Traceback (most recent call last):
+  File "D:\Projects\trading_bot\src\application\..\telegram_bot\bot_handler.py", line 123, in stop
+    future = asyncio.run_coroutine_threadsafe(self.application.stop(), self.bot_loop)
+  File "C:\Python314\Lib\asyncio\tasks.py", line 1026, in run_coroutine_threadsafe
+    loop.call_soon_threadsafe(callback)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 872, in call_soon_threadsafe
+    self._check_closed()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 550, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+2025-11-25 15:39:55,701 - application.app_controller - ERROR - app_controller.py:197 - stop() - Error stopping application: Error stopping Telegram bot: Event loop is closed
+Traceback (most recent call last):
+  File "D:\Projects\trading_bot\src\application\..\telegram_bot\bot_handler.py", line 123, in stop
+    future = asyncio.run_coroutine_threadsafe(self.application.stop(), self.bot_loop)
+  File "C:\Python314\Lib\asyncio\tasks.py", line 1026, in run_coroutine_threadsafe
+    loop.call_soon_threadsafe(callback)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 872, in call_soon_threadsafe
+    self._check_closed()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 550, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\trading_bot\src\application\app_controller.py", line 185, in stop
+    self.bot_handler.stop()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects\trading_bot\src\application\..\telegram_bot\bot_handler.py", line 131, in stop
+    raise TelegramBotError(f"Error stopping Telegram bot: {e}")
+utils.error_handler.TelegramBotError: Error stopping Telegram bot: Event loop is closed

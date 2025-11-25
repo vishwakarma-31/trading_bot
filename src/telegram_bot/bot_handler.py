@@ -35,7 +35,9 @@ class TelegramBotHandler:
         self.market_fetcher = market_fetcher
         self.service_controller = ServiceController(market_fetcher, config) if market_fetcher else None
         self.market_view_manager = MarketViewManager(market_fetcher) if market_fetcher else None
-        self.alert_manager = AlertManager(config.telegram_token, self.application) if config.telegram_token else None
+        # Create explicit event loop for the bot
+        self.bot_loop = asyncio.new_event_loop()
+        self.alert_manager = AlertManager(config.telegram_token, loop=self.bot_loop) if config.telegram_token else None
         
         # If no arbitrage_detector was provided but we have a service_controller,
         # use the one from the service_controller
@@ -100,7 +102,7 @@ class TelegramBotHandler:
             
             # Start the bot in a separate thread to avoid blocking
             def run_bot():
-                asyncio.set_event_loop(self.application.loop)
+                asyncio.set_event_loop(self.bot_loop)
                 self.application.run_polling(allowed_updates=Update.ALL_TYPES)
                 
             bot_thread = threading.Thread(target=run_bot, daemon=True)
@@ -116,9 +118,11 @@ class TelegramBotHandler:
         try:
             if self.application:
                 # In v22+, we need to stop the application properly
-                import asyncio
                 if hasattr(self.application, 'stop'):
-                    asyncio.run(self.application.stop())
+                    # Use run_coroutine_threadsafe to shut down gracefully
+                    future = asyncio.run_coroutine_threadsafe(self.application.stop(), self.bot_loop)
+                    # Wait for the future to complete
+                    future.result(timeout=5)  # 5 second timeout
                 self.logger.info("Telegram bot stopped")
                 # Save user configurations
                 self.user_config_manager.save_config()
