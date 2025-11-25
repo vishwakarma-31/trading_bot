@@ -180,7 +180,7 @@ def test_service_status():
 
 def run_all_tests():
     """Run all tests for the service controller"""
-    print("GoQuant Trading Bot - Service Controller Test")
+    print("Generic Trading Bot - Service Controller Test")
     print("=" * 50)
     
     tests = [

@@ -142,7 +142,7 @@ def test_opportunity_tracking(detector: ArbitrageDetector, fetcher: MarketDataFe
 
 def main():
     """Main test function"""
-    print("GoQuant Trading Bot - Arbitrage Detection Module Test")
+    print("Generic Trading Bot - Arbitrage Detection Module Test")
     print("=" * 55)
     
     # Initialize components
@@ -150,10 +150,16 @@ def main():
     fetcher = MarketDataFetcher(config)
     detector = ArbitrageDetector(fetcher, config)
     
-    # Check if API key is configured
-    if not config.gomarket_api_key:
-        print("⚠️  Warning: GoMarket API key not configured. Set GOMARKET_API_KEY in .env file.")
-        print("   Some tests will be skipped or may fail.")
+    # Check if exchange API keys are configured
+    missing_keys = []
+    if not config.binance_api_key:
+        missing_keys.append('Binance')
+    if not config.okx_api_key:
+        missing_keys.append('OKX')
+    
+    if missing_keys:
+        print(f"⚠️  Warning: API keys not configured for {', '.join(missing_keys)}. Set API keys in .env file.")
+        print("   Some tests may be skipped or limited.")
     
     # Run tests
     tests = [

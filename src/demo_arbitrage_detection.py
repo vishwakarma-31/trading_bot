@@ -23,7 +23,7 @@ def setup_logging():
 
 def demo_arbitrage_detection():
     """Demonstrate the arbitrage detection functionality"""
-    print("GoQuant Trading Bot - Arbitrage Detection Demo")
+    print("Generic Trading Bot - Arbitrage Detection Demo")
     print("=" * 50)
     
     # Initialize components
@@ -44,7 +44,7 @@ def demo_arbitrage_detection():
     all_symbols = market_fetcher.get_all_symbols()
     
     if not all_symbols:
-        print("❌ Failed to retrieve symbols. Please check your GoMarket API configuration.")
+        print("❌ Failed to retrieve symbols. Please check your exchange API configuration.")
         return
         
     print(f"✅ Retrieved symbols from {len(all_symbols)} exchanges:")

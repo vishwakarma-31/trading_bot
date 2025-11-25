@@ -22,7 +22,7 @@ def setup_logging():
 
 def demo_market_view():
     """Demonstrate the market view functionality"""
-    print("GoQuant Trading Bot - Market View Demo")
+    print("Generic Trading Bot - Market View Demo")
     print("=" * 40)
     
     # Initialize components
@@ -37,7 +37,7 @@ def demo_market_view():
     all_symbols = market_fetcher.get_all_symbols()
     
     if not all_symbols:
-        print("❌ Failed to retrieve symbols. Please check your GoMarket API configuration.")
+        print("❌ Failed to retrieve symbols. Please check your exchange API configuration.")
         return
         
     print(f"✅ Retrieved symbols from {len(all_symbols)} exchanges:")

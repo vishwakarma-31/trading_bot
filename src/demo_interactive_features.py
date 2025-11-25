@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
 def demo_interactive_features():
     """Demonstrate the interactive features"""
-    print("GoQuant Trading Bot - Interactive Features Demo")
+    print("Generic Trading Bot - Interactive Features Demo")
     print("=" * 50)
     
     print("""

@@ -99,7 +99,7 @@ def test_alert_history(alert_manager: AlertManager):
 
 def main():
     """Main test function"""
-    print("GoQuant Trading Bot - Alert Manager Test")
+    print("Generic Trading Bot - Alert Manager Test")
     print("=" * 40)
     
     # Initialize alert manager (we won't actually send messages in this test)

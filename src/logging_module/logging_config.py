@@ -1,5 +1,5 @@
 """
-Logging Configuration for the GoQuant Trading Bot
+Logging Configuration for the Generic Trading Bot
 """
 import logging
 import logging.config

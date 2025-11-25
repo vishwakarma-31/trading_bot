@@ -1,6 +1,6 @@
 """
-Main entry point for the GoQuant Trading Bot with Mock Data
-This version uses simulated market data instead of the GoMarket API.
+Main entry point for the Generic Trading Bot with Mock Data
+This version uses simulated market data.
 """
 import sys
 import os
@@ -33,10 +33,9 @@ def setup_logging():
 
 def main():
     """Main entry point for the trading bot with mock data"""
-    print("GoQuant Trading Bot - Mock Data Version")
+    print("Generic Trading Bot - Mock Data Version")
     print("=" * 40)
     print("Running with simulated market data")
-    print("No GoMarket API required")
     print()
     
     # Setup logging

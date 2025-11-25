@@ -1,5 +1,5 @@
 """
-Setup script for the GoQuant Trading Bot
+Setup script for the Generic Trading Bot
 """
 from setuptools import setup, find_packages
 
@@ -10,9 +10,9 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
     requirements = [line.strip() for line in fh if line.strip() and not line.startswith("#")]
 
 setup(
-    name="goquant-trading-bot",
+    name="generic-trading-bot",
     version="0.1.0",
-    author="GoQuant",
+    author="Generic Trading Bot Team",
     description="A sophisticated trading information system with Telegram bot interface",
     long_description=long_description,
     long_description_content_type="text/markdown",

@@ -65,7 +65,7 @@ def test_signal_handling():
 
 def run_all_tests():
     """Run all tests for the application controller"""
-    print("GoQuant Trading Bot - Application Controller Test")
+    print("Generic Trading Bot - Application Controller Test")
     print("=" * 50)
     
     tests = [

@@ -1,6 +1,6 @@
 """
-Mock Market Data Fetcher for the GoQuant Trading Bot
-This allows running the system without the GoMarket API by simulating market data.
+Mock Market Data Fetcher for the Generic Trading Bot
+This allows running the system with simulated market data.
 """
 import logging
 import random

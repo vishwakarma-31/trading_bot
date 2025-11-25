@@ -2,7 +2,7 @@
 
 ## Overview
 
-The GoQuant Trading Bot is a sophisticated trading information system that uses GoMarket data product with a Telegram bot interface. The system is designed with a modular architecture that separates concerns and enables maintainability, scalability, and testability.
+The Generic Trading Bot is a sophisticated trading information system that uses cryptocurrency exchange APIs with a Telegram bot interface. The system is designed with a modular architecture that separates concerns and enables maintainability, scalability, and testability.
 
 The system has two main services:
 
@@ -14,11 +14,11 @@ The system has two main services:
 ```mermaid
 graph TB
     subgraph "External Systems"
-        A[GoMarket API]
+        A[Exchange APIs]
         B[Telegram API]
     end
 
-    subgraph "GoQuant Trading Bot"
+    subgraph "Generic Trading Bot"
         C[Application Controller]
         D[Configuration Manager]
         E[Data Acquisition Module]
@@ -121,7 +121,7 @@ graph TB
 
 ### 3. Data Acquisition Module
 
-**Purpose**: Connects to the GoMarket APIs and fetches market data from multiple exchanges.
+**Purpose**: Connects to cryptocurrency exchange APIs and fetches market data from multiple exchanges.
 
 **Inputs**:
 - Exchange names and symbols to monitor

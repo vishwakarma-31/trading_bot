@@ -2,7 +2,7 @@
 
 ## Overview
 
-The GoQuant Trading Bot provides a comprehensive Telegram interface for monitoring arbitrage opportunities and market views across multiple cryptocurrency exchanges. This guide explains how to use all available commands, interact with the bot's features, and configure your monitoring preferences.
+The Generic Trading Bot provides a comprehensive Telegram interface for monitoring arbitrage opportunities and market views across multiple cryptocurrency exchanges. This guide explains how to use all available commands, interact with the bot's features, and configure your monitoring preferences.
 
 ## Command Reference
 
@@ -553,7 +553,7 @@ Time: 2025-10-05 14:30:15 UTC
 
 ## Conclusion
 
-The GoQuant Trading Bot provides a powerful yet user-friendly Telegram interface for cryptocurrency arbitrage monitoring and market analysis. By following this guide, you can effectively utilize all available features to monitor trading opportunities and make informed decisions.
+The Generic Trading Bot provides a powerful yet user-friendly Telegram interface for cryptocurrency arbitrage monitoring and market analysis. By following this guide, you can effectively utilize all available features to monitor trading opportunities and make informed decisions.
 
 Remember to:
 - Start with conservative thresholds

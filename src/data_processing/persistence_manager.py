@@ -1,5 +1,5 @@
 """
-Persistence Manager for the GoQuant Trading Bot
+Persistence Manager for the Generic Trading Bot
 Handles saving and restoring monitoring states and configurations.
 """
 import json

@@ -1,5 +1,5 @@
 """
-User Configuration Manager for the GoQuant Trading Bot
+User Configuration Manager for the Generic Trading Bot
 Handles user-specific settings and monitoring parameters.
 """
 import json

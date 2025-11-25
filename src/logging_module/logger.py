@@ -1,5 +1,5 @@
 """
-Custom Logger for the GoQuant Trading Bot
+Custom Logger for the Generic Trading Bot
 """
 import logging
 import os

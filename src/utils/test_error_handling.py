@@ -121,7 +121,7 @@ def test_safe_execute():
 
 def run_all_tests():
     """Run all tests for error handling utilities"""
-    print("GoQuant Trading Bot - Error Handling Utilities Test")
+    print("Generic Trading Bot - Error Handling Utilities Test")
     print("=" * 55)
     
     tests = [

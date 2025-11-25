@@ -166,17 +166,23 @@ def test_websocket_functionality(fetcher: MarketDataFetcher):
 
 def main():
     """Main test function"""
-    print("GoQuant Trading Bot - Data Acquisition Module Test")
+    print("Generic Trading Bot - Data Acquisition Module Test")
     print("=" * 50)
     
     # Initialize components
     config = ConfigManager()
     fetcher = MarketDataFetcher(config)
     
-    # Check if API key is configured
-    if not config.gomarket_api_key:
-        print("⚠️  Warning: GoMarket API key not configured. Set GOMARKET_API_KEY in .env file.")
-        print("   Some tests will be skipped.")
+    # Check if exchange API keys are configured
+    missing_keys = []
+    if not config.binance_api_key:
+        missing_keys.append('Binance')
+    if not config.okx_api_key:
+        missing_keys.append('OKX')
+    
+    if missing_keys:
+        print(f"⚠️  Warning: API keys not configured for {', '.join(missing_keys)}. Set API keys in .env file.")
+        print("   Some tests may be skipped or limited.")
     
     # Run tests
     tests = [

@@ -16,7 +16,7 @@ from data_processing.market_view import ConsolidatedMarketView
 
 def demo_alert_formatting():
     """Demonstrate alert formatting"""
-    print("GoQuant Trading Bot - Alerting System Demo")
+    print("Generic Trading Bot - Alerting System Demo")
     print("=" * 45)
     
     print("\n1. Alert Formatting Examples")

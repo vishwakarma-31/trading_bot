@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document provides detailed documentation of the core algorithms and logic used in the GoQuant Trading Bot, including arbitrage detection, CBBO calculation, venue signaling, and data processing mechanisms.
+This document provides detailed documentation of the core algorithms and logic used in the Generic Trading Bot, including arbitrage detection, CBBO calculation, venue signaling, and data processing mechanisms.
 
 ## 1. Arbitrage Detection Algorithm
 
@@ -185,11 +185,11 @@ Change Percentage = |($60,010.00 - $60,000.00) / $60,000.00| × 100 = 0.0167%
 
 Since 0.0167% < 0.1%, this would not trigger an update based on significant change alone.
 
-## 4. GoMarket Data Processing
+## 4. Exchange Data Processing
 
 ### 4.1 How Raw Data is Received
 
-Raw data is received from GoMarket through two mechanisms:
+Raw data is received from cryptocurrency exchanges through two mechanisms:
 
 1. **REST API Polling**: Periodic HTTP requests to fetch market data
 2. **WebSocket Streaming**: Real-time data streams for immediate updates
@@ -387,4 +387,4 @@ Statistical analysis features include:
 
 ## Conclusion
 
-This documentation provides a comprehensive overview of the core algorithms and logic used in the GoQuant Trading Bot. The system is designed to be robust, efficient, and capable of handling various edge cases while providing accurate arbitrage detection and market view calculations.
+This documentation provides a comprehensive overview of the core algorithms and logic used in the Generic Trading Bot. The system is designed to be robust, efficient, and capable of handling various edge cases while providing accurate arbitrage detection and market view calculations.

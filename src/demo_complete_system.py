@@ -1,5 +1,5 @@
 """
-Demo script for the complete GoQuant Trading Bot system
+Demo script for the complete Generic Trading Bot system
 This script demonstrates the integration of arbitrage detection and market view functionality.
 """
 import sys
@@ -24,7 +24,7 @@ def setup_logging():
 
 def demo_complete_system():
     """Demonstrate the complete system functionality"""
-    print("GoQuant Trading Bot - Complete System Demo")
+    print("Generic Trading Bot - Complete System Demo")
     print("=" * 45)
     
     # Initialize components
@@ -43,7 +43,7 @@ def demo_complete_system():
     all_symbols = market_fetcher.get_all_symbols()
     
     if not all_symbols:
-        print("❌ Failed to retrieve symbols. Please check your GoMarket API configuration.")
+        print("❌ Failed to retrieve symbols. Please check your exchange API configuration.")
         return
         
     print(f"✅ Retrieved symbols from {len(all_symbols)} exchanges:")
@@ -136,7 +136,7 @@ def demo_complete_system():
     
     print("\n" + "=" * 45)
     print("✅ Complete system demo completed successfully!")
-    print("\nThe GoQuant Trading Bot provides:")
+    print("\nThe Generic Trading Bot provides:")
     print("  - Multi-exchange arbitrage detection")
     print("  - Consolidated market view with CBBO")
     print("  - Real-time monitoring capabilities")

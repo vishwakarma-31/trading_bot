@@ -1,5 +1,5 @@
 """
-System Integration Test for the GoQuant Trading Bot
+System Integration Test for the Generic Trading Bot
 Tests the complete system to ensure all requirements are met
 """
 import sys
@@ -121,7 +121,7 @@ class SystemIntegrationTest:
             return False
             
     def test_arbitrage_detection(self) -> bool:
-        """Test arbitrage detection - Create test scenarios with known price differences, verify threshold logic, verify alerts are sent correctly, test with real GoMarket data"""
+        """Test arbitrage detection - Create test scenarios with known price differences, verify threshold logic, verify alerts are sent correctly, test with real exchange data"""
         print("\n=== Testing Arbitrage Detection Module ===")
         
         if not self.market_fetcher:
@@ -187,7 +187,7 @@ class SystemIntegrationTest:
             return False
             
     def test_market_view(self) -> bool:
-        """Test market view - Verify CBBO calculation is correct, verify venue identification is correct, verify alerts are sent correctly, test with real GoMarket data"""
+        """Test market view - Verify CBBO calculation is correct, verify venue identification is correct, verify alerts are sent correctly, test with real exchange data"""
         print("\n=== Testing Market View Module ===")
         
         if not self.market_fetcher:
@@ -373,7 +373,7 @@ class SystemIntegrationTest:
             
     def run_all_tests(self) -> bool:
         """Run all system integration tests"""
-        print("GoQuant Trading Bot - System Integration Test")
+        print("Generic Trading Bot - System Integration Test")
         print("=" * 50)
         
         tests = [

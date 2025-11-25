@@ -12,7 +12,7 @@ from data_acquisition.market_data_fetcher import MarketDataFetcher
 
 def debug_symbols():
     """Debug symbol data structure"""
-    print("GoQuant Trading Bot - Symbol Debug")
+    print("Generic Trading Bot - Symbol Debug")
     print("=" * 35)
     
     # Initialize components

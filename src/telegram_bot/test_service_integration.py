@@ -43,7 +43,7 @@ def test_service_controller_integration():
 
 def run_all_tests():
     """Run all tests for service controller integration"""
-    print("GoQuant Trading Bot - Service Controller Integration Test")
+    print("Generic Trading Bot - Service Controller Integration Test")
     print("=" * 60)
     
     tests = [

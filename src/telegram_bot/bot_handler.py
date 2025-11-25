@@ -478,7 +478,7 @@ Use /config to manage your configuration.
     async def _show_main_menu(self, user_id: int, chat_id: int, context: CallbackContext):
         """Show main interactive menu"""
         try:
-            menu_text = "🤖 *GoQuant Trading Bot Menu*\n\nPlease select an option:"
+            menu_text = "🤖 *Generic Trading Bot Menu*\n\nPlease select an option:"
             
             keyboard = [
                 [InlineKeyboardButton("⚖️ Arbitrage Service", callback_data='menu_arb')],
@@ -502,10 +502,10 @@ Use /config to manage your configuration.
         """Handle /status command"""
         try:
             chat_id = update.effective_chat.id if update.effective_chat else self._get_user_id(update)
-            status_text = "📊 *GoQuant Trading Bot Status*\n\n"
+            status_text = "📊 *Generic Trading Bot Status*\n\n"
             status_text += "✅ Running\n"
             status_text += f"📡 Supported exchanges: Binance, OKX, Bybit, Deribit\n"
-            status_text += f"🔑 GoMarket access code: {self.config.gomarket_access_code}\n"
+            # Exchange data access is now handled through CCXT directly
             status_text += f"🕐 Last updated: {time.strftime('%Y-%m-%d %H:%M:%S')}\n"
             
             if self.arbitrage_detector:

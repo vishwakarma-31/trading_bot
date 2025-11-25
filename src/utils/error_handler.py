@@ -1,5 +1,5 @@
 """
-Error Handler Utilities for the GoQuant Trading Bot
+Error Handler Utilities for the Generic Trading Bot
 """
 import logging
 import traceback

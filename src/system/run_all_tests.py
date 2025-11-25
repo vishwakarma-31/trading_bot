@@ -1,5 +1,5 @@
 """
-Test Runner for the GoQuant Trading Bot
+Test Runner for the Generic Trading Bot
 Runs all tests in the proper sequence to validate the complete system
 """
 import sys
@@ -40,7 +40,7 @@ def run_test_script(script_path: str, description: str) -> bool:
 
 def run_module_tests() -> dict:
     """Run individual module tests"""
-    print("GoQuant Trading Bot - Complete System Test")
+    print("Generic Trading Bot - Complete System Test")
     print("=" * 60)
     
     # Define test scripts in order of dependency
@@ -106,7 +106,7 @@ def print_summary(results: dict):
 
 def main():
     """Main test runner function"""
-    print("GoQuant Trading Bot - Automated Test Runner")
+    print("Generic Trading Bot - Automated Test Runner")
     print("Starting comprehensive system validation...")
     
     start_time = time.time()

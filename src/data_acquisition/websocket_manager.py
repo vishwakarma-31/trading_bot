@@ -1,5 +1,5 @@
 """
-WebSocket Manager for the GoQuant Trading Bot
+WebSocket Manager for the Generic Trading Bot
 """
 import logging
 import websocket
@@ -36,8 +36,9 @@ class WebSocketManager:
         Returns:
             WebSocket URL
         """
-        # This is a placeholder - actual GoMarket WebSocket URLs would be different
-        return f"wss://gomarket-api.goquant.io/ws/{data_type}/{exchange}/{symbol}"
+        # This is a placeholder - actual WebSocket URLs would be different
+        # For now, we're using a placeholder URL
+        return f"wss://market-data.generic-trading-bot.io/ws/{data_type}/{exchange}/{symbol}"
         
     def _on_message(self, ws, message, exchange: str, symbol: str):
         """Handle incoming WebSocket message"""

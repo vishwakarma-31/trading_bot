@@ -63,7 +63,7 @@ def test_app_controller_structure():
 
 def run_all_tests():
     """Run all tests for the application controller"""
-    print("GoQuant Trading Bot - Simple Application Controller Test")
+    print("Generic Trading Bot - Simple Application Controller Test")
     print("=" * 55)
     
     tests = [

@@ -1,5 +1,5 @@
 """
-Core Functionality Test for the GoQuant Trading Bot
+Core Functionality Test for the Generic Trading Bot
 Tests core system functionality without external dependencies
 """
 import sys
@@ -266,7 +266,7 @@ def test_service_controllers():
 
 def run_all_tests():
     """Run all core functionality tests"""
-    print("GoQuant Trading Bot - Core Functionality Test")
+    print("Generic Trading Bot - Core Functionality Test")
     print("=" * 45)
     
     tests = [

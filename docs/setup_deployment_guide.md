@@ -1,6 +1,6 @@
-# GoQuant Trading Bot Setup and Deployment Guide
+# Generic Trading Bot Setup and Deployment Guide
 
-This guide provides step-by-step instructions for setting up, configuring, and deploying the GoQuant Trading Bot. Follow these instructions to get your bot running locally or deploy it to a production server.
+This guide provides step-by-step instructions for setting up, configuring, and deploying the Generic Trading Bot. Follow these instructions to get your bot running locally or deploy it to a production server.
 
 ## Table of Contents
 
@@ -14,7 +14,7 @@ This guide provides step-by-step instructions for setting up, configuring, and d
 
 ### Python Version Required
 
-The GoQuant Trading Bot requires Python 3.8 or higher. Verify your Python version:
+The Generic Trading Bot requires Python 3.8 or higher. Verify your Python version:
 
 ```bash
 python --version
@@ -44,9 +44,9 @@ Before installing the bot, you'll need to obtain the following API keys:
    - Create a Telegram bot using BotFather
    - See [Configuration Steps](#configuration-steps) for detailed instructions
 
-2. **GoMarket API Key**
-   - Access code: 2194
-   - Contact GoMarket support to obtain your API key
+2. **Exchange API Keys**
+   - API keys for supported exchanges (Binance, OKX, Bybit, Deribit)
+   - See [Configuration Steps](#configuration-steps) for detailed instructions
 
 ## Installation Steps
 
@@ -123,14 +123,14 @@ Edit the `.env` file with your actual API keys (see [Configuration Steps](#confi
 1. Open Telegram and search for [@BotFather](https://t.me/BotFather)
 2. Start a chat with BotFather and send `/newbot`
 3. Follow the prompts to:
-   - Choose a name for your bot (e.g., "GoQuant Trading Bot")
-   - Choose a username for your bot (must end in "bot", e.g., "goquant_trading_bot")
+   - Choose a name for your bot (e.g., "Generic Trading Bot")
+   - Choose a username for your bot (must end in "bot", e.g., "generic_trading_bot")
 4. BotFather will provide you with a token that looks like: `123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ`
 5. Copy this token for use in your `.env` file
 
-### 2. Obtain GoMarket API Access
+### 2. Obtain Exchange API Keys
 
-Contact GoMarket support with access code 2194 to obtain your API key. They will provide you with a key that looks like: `gomarket_api_key_xxxxxxxxxxxxxxxx`
+Obtain API keys from each supported exchange (Binance, OKX, Bybit, Deribit) by creating accounts and enabling API access in your exchange settings.
 
 ### 3. Configure Bot Settings in Code
 
@@ -140,8 +140,23 @@ Edit the `.env` file in the root directory with your API keys:
 # Telegram Bot Configuration
 TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
 
-# GoMarket API Configuration
-GOMARKET_API_KEY=your_gomarket_api_key_here
+# Exchange API Configuration
+# Binance
+BINANCE_API_KEY=your_binance_api_key_here
+BINANCE_SECRET_KEY=your_binance_secret_key_here
+
+# OKX
+OKX_API_KEY=your_okx_api_key_here
+OKX_SECRET_KEY=your_okx_secret_key_here
+OKX_PASSPHRASE=your_okx_passphrase_here
+
+# Bybit
+BYBIT_API_KEY=your_bybit_api_key_here
+BYBIT_SECRET_KEY=your_bybit_secret_key_here
+
+# Deribit
+DERIBIT_API_KEY=your_deribit_api_key_here
+DERIBIT_SECRET_KEY=your_deribit_secret_key_here
 
 # Arbitrage Detection Thresholds
 MIN_PROFIT_PERCENTAGE=0.5
@@ -182,7 +197,7 @@ run_bot.bat
 
 1. **Console Output**: You should see initialization messages in the console:
    ```
-   Initializing GoQuant Trading Bot...
+   Initializing Generic Trading Bot...
    Configuration loaded
    Logging system initialized
    ...
@@ -251,7 +266,7 @@ Create a systemd service file at `/etc/systemd/system/tradingbot.service`:
 
 ```ini
 [Unit]
-Description=GoQuant Trading Bot
+Description=Generic Trading Bot
 After=network.target
 
 [Service]
@@ -314,4 +329,4 @@ sudo journalctl -u tradingbot.service -f
 
 ---
 
-This concludes the setup and deployment guide for the GoQuant Trading Bot. For usage instructions, refer to the [Telegram Bot User Guide](telegram_bot_user_guide.md).
+This concludes the setup and deployment guide for the Generic Trading Bot. For usage instructions, refer to the [Telegram Bot User Guide](telegram_bot_user_guide.md).

@@ -1,5 +1,5 @@
 """
-Validation Scenarios Test for the GoQuant Trading Bot
+Validation Scenarios Test for the Generic Trading Bot
 Tests specific scenarios with known data patterns
 """
 import sys
@@ -343,7 +343,7 @@ class ValidationScenariosTest:
             
     def run_all_tests(self) -> bool:
         """Run all validation scenario tests"""
-        print("GoQuant Trading Bot - Validation Scenarios Test")
+        print("Generic Trading Bot - Validation Scenarios Test")
         print("=" * 50)
         
         tests = [

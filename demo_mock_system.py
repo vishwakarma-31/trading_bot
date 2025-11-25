@@ -1,6 +1,6 @@
 """
-Demo script for the GoQuant Trading Bot with Mock Data
-This demonstrates the core functionality without requiring the GoMarket API.
+Demo script for the Generic Trading Bot with Mock Data
+This demonstrates the core functionality using simulated market data.
 """
 import sys
 import os
@@ -24,7 +24,7 @@ def setup_logging():
 
 def demo_mock_system():
     """Demonstrate the system functionality with mock data"""
-    print("GoQuant Trading Bot - Mock System Demo")
+    print("Generic Trading Bot - Mock System Demo")
     print("=" * 40)
     print("Demonstrating core functionality with simulated market data")
     print()

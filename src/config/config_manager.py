@@ -66,4 +66,4 @@ class ConfigManager:
         """Set minimum profit absolute value threshold"""
         self._min_profit_absolute = value
         
-    # Removed GoMarket specific API endpoints as we're now using ccxt
+    # Exchange API endpoints are now handled through ccxt

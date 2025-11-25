@@ -214,7 +214,7 @@ def test_config_reset(user_config_manager: UserConfigManager):
 
 def main():
     """Main test function"""
-    print("GoQuant Trading Bot - User Configuration Manager Test")
+    print("Generic Trading Bot - User Configuration Manager Test")
     print("=" * 55)
     
     # Initialize components
