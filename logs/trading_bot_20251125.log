@@ -388,3 +388,98 @@ utils.error_handler.TelegramBotError: Error stopping Telegram bot: Event loop is
 2025-11-25 15:59:53,460 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
 2025-11-25 16:00:03,706 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
 2025-11-25 16:00:13,913 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:45:51,410 - application.app_controller - INFO - app_controller.py:70 - initialize() - Logging system initialized
+2025-11-25 18:45:51,421 - data_acquisition.market_data_fetcher - INFO - market_data_fetcher.py:35 - __init__() - Initialized Binance CCXT client
+2025-11-25 18:45:51,429 - data_acquisition.market_data_fetcher - INFO - market_data_fetcher.py:46 - __init__() - Initialized OKX CCXT client
+2025-11-25 18:45:51,429 - application.app_controller - INFO - app_controller.py:74 - initialize() - Market data fetcher initialized
+2025-11-25 18:45:51,436 - application.app_controller - INFO - app_controller.py:78 - initialize() - Arbitrage detector initialized
+2025-11-25 18:45:51,438 - data_processing.persistence_manager - INFO - persistence_manager.py:164 - load_persistence_data() - Monitoring states file persistence_data.json not found, using defaults
+2025-11-25 18:45:51,438 - data_processing.service_controller - INFO - service_controller.py:48 - __init__() - Service controller initialized
+2025-11-25 18:45:51,438 - application.app_controller - INFO - app_controller.py:82 - initialize() - Service controller initialized
+2025-11-25 18:45:51,439 - config.user_config_manager - INFO - user_config_manager.py:404 - load_config() - Configuration file user_config.json not found, using defaults
+2025-11-25 18:45:51,439 - data_processing.persistence_manager - INFO - persistence_manager.py:164 - load_persistence_data() - Monitoring states file persistence_data.json not found, using defaults
+2025-11-25 18:45:51,440 - data_processing.service_controller - INFO - service_controller.py:48 - __init__() - Service controller initialized
+2025-11-25 18:45:52,801 - application.app_controller - INFO - app_controller.py:95 - initialize() - Telegram bot handler initialized
+2025-11-25 18:45:52,802 - application.app_controller - INFO - app_controller.py:97 - initialize() - Application initialization completed successfully
+2025-11-25 18:45:52,802 - application.app_controller - INFO - app_controller.py:118 - start() - Starting Generic Trading Bot...
+2025-11-25 18:45:53,756 - telegram_bot.bot_handler - INFO - bot_handler.py:110 - start() - Telegram bot started successfully in separate thread
+2025-11-25 18:45:53,756 - application.app_controller - INFO - app_controller.py:123 - start() - Telegram bot started
+2025-11-25 18:45:53,757 - application.app_controller - INFO - app_controller.py:156 - _main_loop() - Entering main application loop
+2025-11-25 18:45:54,547 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getMe "HTTP/1.1 200 OK"
+2025-11-25 18:45:54,750 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/deleteWebhook "HTTP/1.1 200 OK"
+2025-11-25 18:45:54,752 - telegram.ext.Application - INFO - _application.py:633 - start() - Application started
+2025-11-25 18:46:05,472 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:46:15,659 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:46:25,841 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:46:36,004 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:46:46,186 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:46:56,347 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:47:06,510 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:47:16,693 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:47:26,862 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:47:37,027 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:47:47,190 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:47:57,352 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:48:07,517 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:48:17,681 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:48:27,869 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:48:38,051 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:48:48,217 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:48:58,386 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:49:08,551 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:49:18,716 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:49:28,880 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:49:39,048 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:49:49,209 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:49:59,388 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:50:09,554 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:50:19,721 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:50:29,886 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:50:40,120 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:50:50,285 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:51:00,451 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:51:10,618 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:51:20,780 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:51:30,946 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:51:41,106 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:51:51,270 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:52:01,442 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:52:11,605 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:52:21,768 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:52:31,931 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:52:42,093 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:52:52,261 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:53:02,422 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:53:12,583 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:53:22,746 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:53:32,909 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:53:43,084 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:53:53,252 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:54:03,415 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:54:13,580 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:54:23,752 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:54:33,918 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:54:44,084 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:54:54,248 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:55:04,414 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:55:14,578 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:55:24,751 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:55:34,917 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:55:45,082 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:55:55,245 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:56:05,407 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:56:15,571 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:56:25,735 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:56:35,902 - httpx - INFO - _client.py:1740 - _send_single_request() - HTTP Request: POST https://api.telegram.org/bot8430652190:AAG_KoUuHQqqVT9ZwSlPUQ9iSMznK7kqs0w/getUpdates "HTTP/1.1 200 OK"
+2025-11-25 18:56:42,813 - application.app_controller - INFO - app_controller.py:205 - _signal_handler() - Received SIGINT signal, initiating graceful shutdown...
+2025-11-25 18:56:42,814 - application.app_controller - INFO - app_controller.py:179 - stop() - Stopping Generic Trading Bot...
+2025-11-25 18:56:42,814 - telegram.ext.Application - INFO - _application.py:667 - stop() - Application is stopping. This might take a moment.
+2025-11-25 18:56:42,815 - telegram.ext.Application - INFO - _application.py:703 - stop() - Application.stop() complete
+2025-11-25 18:56:42,815 - telegram_bot.bot_handler - INFO - bot_handler.py:126 - stop() - Telegram bot stopped
+2025-11-25 18:56:42,816 - config.user_config_manager - INFO - user_config_manager.py:372 - save_config() - Configuration saved to user_config.json
+2025-11-25 18:56:42,816 - application.app_controller - INFO - app_controller.py:186 - stop() - Telegram bot stopped
+2025-11-25 18:56:42,817 - data_processing.service_controller - INFO - service_controller.py:138 - stop_arbitrage_monitoring() - Arbitrage monitoring is not running
+2025-11-25 18:56:42,817 - data_processing.service_controller - INFO - service_controller.py:265 - stop_market_view_monitoring() - Market view monitoring is not running
+2025-11-25 18:56:42,817 - data_processing.service_controller - INFO - service_controller.py:350 - stop_all_services() - All services stopped
+2025-11-25 18:56:42,817 - application.app_controller - INFO - app_controller.py:191 - stop() - All services stopped
+2025-11-25 18:56:42,817 - application.app_controller - INFO - app_controller.py:193 - stop() - Application stopped successfully

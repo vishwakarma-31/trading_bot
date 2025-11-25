@@ -322,23 +322,23 @@ graph TB
 
 ## Data Flow Documentation
 
-### 1. Data Flow from GoMarket to Processing
+### 1. Data Flow from Exchange to Processing
 
 1. **Symbol Discovery**:
    - Configuration Manager provides API credentials
    - Market Data Fetcher requests symbol lists from all exchanges
-   - GoMarket API responds with available symbols
+   - Exchange API responds with available symbols
    - Symbols are cached for monitoring
 
 2. **Market Data Acquisition**:
    - Service Controllers initiate monitoring requests
    - Market Data Fetcher requests L1/L2 data for specified symbols
-   - GoMarket API provides market data
+   - Exchange API provides market data
    - Data is validated and cached
 
 3. **Real-time Data Streaming**:
    - WebSocket Manager establishes connections for real-time data
-   - GoMarket WebSocket streams market data updates
+   - Exchange WebSocket streams market data updates
    - Data is processed and distributed to subscribers
 
 ### 2. Processing Results to Alerts
@@ -423,9 +423,9 @@ The system uses a hybrid approach where WebSocket is preferred for real-time dat
 
 ## Assumptions and Limitations
 
-### Assumptions about GoMarket API Behavior
+### Assumptions about Exchange API Behavior
 
-1. **API Availability**: The GoMarket API is available and responsive
+1. **API Availability**: The Exchange API is available and responsive
 2. **Data Consistency**: Market data is consistent across exchanges
 3. **Rate Limiting**: API rate limits are reasonable and documented
 4. **Authentication**: API authentication is stable and secure
@@ -454,7 +454,7 @@ The system uses a hybrid approach where WebSocket is preferred for real-time dat
 
 ### Rate Limit Considerations
 
-1. **GoMarket API Limits**:
+1. **Exchange API Limits**:
    - 1000 requests per minute per API key
    - 10 concurrent WebSocket connections per API key
    - Automatic rate limiting with exponential backoff

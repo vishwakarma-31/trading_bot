@@ -304,7 +304,7 @@ sudo journalctl -u tradingbot.service -f
 1. **Health Checks**: Regularly check the bot status through Telegram using `/status`
 2. **Log Monitoring**: Set up log rotation and monitoring for errors
 3. **Resource Monitoring**: Monitor CPU and memory usage
-4. **API Quotas**: Monitor GoMarket API usage to ensure you're within limits
+4. **API Quotas**: Monitor Exchange API usage to ensure you're within limits
 5. **Network Connectivity**: Ensure stable internet connection for real-time data
 
 ### Backup and Recovery
